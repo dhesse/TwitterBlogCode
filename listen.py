@@ -54,7 +54,7 @@ if __name__ == '__main__':
     tweet_count = 0
     for i in api.request('statuses/filter',
                           {'track': track,
-                           'language': ['en', 'de']}).get_iterator():
+                           'language': ['en']}).get_iterator():
         db.tweets.insert_one(i)
         tweet_count += 1
         print "{0} Tweets saved.\r".format(tweet_count),
